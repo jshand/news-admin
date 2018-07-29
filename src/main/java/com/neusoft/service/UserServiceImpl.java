@@ -1,7 +1,8 @@
-package com.neusoft.servce;
+package com.neusoft.service;
 
 import java.util.List;
 
+import com.neusoft.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,7 +45,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean accountChange() {
 		
-		TUser user1 = userMapper.selectByPrimaryKey("1");
+		/*TUser user1 = userMapper.selectByPrimaryKey("1");
 		TUser user2 = userMapper.selectByPrimaryKey("2");
 		
 		System.out.println("在第一个账户中减钱");
@@ -56,8 +57,13 @@ public class UserServiceImpl implements UserService {
 		
 		System.out.println("在第二个账户中加钱");
 		user2.setAmount(user2.getAmount()+100);
-		userMapper.updateByPrimaryKeySelective(user2);
-			
+		userMapper.updateByPrimaryKeySelective(user2);*/
+
+
+		List<TUser> users = userMapper.selectByExample(null);
+		for (TUser user:users ) {
+			System.out.println(user);
+		}
 		
 		return false;
 	}

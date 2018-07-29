@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.neusoft.servce.UserService;
+import com.neusoft.service.UserService;
 
 /**
  * <p><b>Project:</b>  		《springmvc02》</p>

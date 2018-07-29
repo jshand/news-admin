@@ -53,16 +53,16 @@
 
 	<!-- 使用Bean工厂管理 Mybatis的 Mapper接口实现类 -->
 	<!-- 创建sqlsession并获得某一个接口的 代理对象 -->
-	<!-- <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean" 
+	 <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean"
 		> <property name="mapperInterface" value="com.neusoft.dao.TUserMapper"></property> 
-		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property> </bean> -->
+		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property> </bean>
 
 	<!-- 解决多个Mapper 重复定义 的问题 扫描指定的包下面的 Mapper.java接口 -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.neusoft.dao"></property>
-		<!-- 注入的是 SQLSessionFactory的Bean的名称 -->
+		&lt;!&ndash; 注入的是 SQLSessionFactory的Bean的名称 &ndash;&gt;
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
-	</bean>
+	</bean>-->
 
 	<!-- 事务 事务管理器 + AOP -->
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -87,7 +87,7 @@
 	
 	<aop:config>
 		<!-- 连接点 -->
-		<aop:pointcut expression="execution(public * com.neusoft.servce.*.*(..))" id="serviceOperation"/>
+		<aop:pointcut expression="execution(public * com.neusoft.service.*.*(..))" id="serviceOperation"/>
 		
 		<!-- 通知   使用 advice-ref="txAdvice" advice-ref="txAdvice"引用定义好的   通知 -->
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>

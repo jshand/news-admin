@@ -1,4 +1,4 @@
-package com.neusoft.servce;
+package com.neusoft.service;
 
 import java.util.List;
 
